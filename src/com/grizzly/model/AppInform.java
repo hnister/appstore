@@ -172,11 +172,16 @@ public class AppInform implements Serializable {
 	public void setVersionId(long versionId) {
 		this.versionId = versionId;
 	}
-	public AppInform(long id, String softwareName) {
-		super();
-		this.id = id;
-		this.softwareName = softwareName;
+	@Override
+	public String toString() {
+		return "AppInform [id=" + id + ", softwareName=" + softwareName + ", APKName=" + APKName + ", supportROM="
+				+ supportROM + ", interfaceLanguage=" + interfaceLanguage + ", softwareSize=" + softwareSize
+				+ ", updateDate=" + updateDate + ", devId=" + devId + ", appInfo=" + appInfo + ", status=" + status
+				+ ", onSaleDate=" + onSaleDate + ", offSaleDate=" + offSaleDate + ", flatformId=" + flatformId
+				+ ", categoryLevel3=" + categoryLevel3 + ", downloads=" + downloads + ", createdBy=" + createdBy
+				+ ", creationDate=" + creationDate + ", modifyBy=" + modifyBy + ", modifyDate=" + modifyDate
+				+ ", categoryLevel1=" + categoryLevel1 + ", categoryLevel2=" + categoryLevel2 + ", logoPicPath="
+				+ logoPicPath + ", logoLocPath=" + logoLocPath + ", versionId=" + versionId + "]";
 	}
-	
 	
 }

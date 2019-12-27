@@ -5,4 +5,30 @@
 	<select id="allAppInform"  resultType="AppInform" >
     	select id,softwareName from app_info order by id asc
     </select>
+    <select id="countAppInforms" resultType="int">
+		select count(1) from app_info
+			<where>
+				<if test="params.softwareName != null">
+					and softwareName like #{params.softwareName}
+				</if>
+				<if test="params.id != null">
+					and id = #{params.id}
+				</if>
+			</where>
+	</select>
+	<select id="selectByPage" resultType="com.grizzly.model.AppInform">
+		select * from app_info
+			<where>
+				<if test="params.softwareName != null">
+					and softwareName like #{params.softwareName}
+				</if>
+				<if test="params.id != null">
+					and id = #{params.id}
+				</if>
+			</where>
+			order by creationDate desc
+			<if test="params.start != null and params.size != null">
+				limit #{params.start},#{params.size}
+			</if>
+	</select>
 </mapper>
