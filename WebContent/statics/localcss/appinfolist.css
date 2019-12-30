@@ -1,18 +1,19 @@
 .x_content form ul {
-	list-style: none;
+    list-style: none;
 }
 
 .x_content form ul li {
-	width: 350px;
-	display: inline-block;
-	height:40px;
-	line-height: 40px;
-	vertical-align: middle;
+    width: 350px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
 }
 
-.tooltip{
-	z-index:9999999999;
+.tooltip {
+    z-index: 9999999999;
 }
-.dropdown-menu{
-	min-width:105px;
+
+.dropdown-menu {
+    min-width: 105px;
 }

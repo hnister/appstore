@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -22,41 +22,42 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
 
-      <div class="login_wrapper">
+    <div class="login_wrapper">
         <div class="animate form login_form">
-          <section class="login_content">
-            <form action="dologin" method="post">
-              <h1>后台管理系统</h1>
-              <div>
-                <input type="text" class="form-control" name="userCode" placeholder="请输入用户名" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" name="userPassword" placeholder="请输入密码" required="" />
-              </div>
-              <span>${error }</span>
-              <div>
-              	<button type="submit" class="btn btn-success">登     录</button>
-              	<button type="reset" class="btn btn-default">重　填</button>
-              </div>
+            <section class="login_content">
+                <form action="dologin" method="post">
+                    <h1>后台管理系统</h1>
+                    <div>
+                        <input type="text" class="form-control" name="userCode" placeholder="请输入用户名" required=""/>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" name="userPassword" placeholder="请输入密码"
+                               required=""/>
+                    </div>
+                    <span>${error }</span>
+                    <div>
+                        <button type="submit" class="btn btn-success">登 录</button>
+                        <button type="reset" class="btn btn-default">重　填</button>
+                    </div>
 
-              <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-              <div class="separator">
-                <div>
-                  <p>©2016 All Rights Reserved. </p>
-                </div>
-              </div>
-            </form>
-          </section>
+                    <div class="separator">
+                        <div>
+                            <p>©2016 All Rights Reserved. </p>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>

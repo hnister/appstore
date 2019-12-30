@@ -2,38 +2,39 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- org.hnist.dao.NewsMapper对应的接口 -->
 <mapper namespace="com.grizzly.dao.NewsMapper">
-    
-    <select id="listAll"  resultType="News" >
-    	select * from news order by nid asc
+
+    <select id="listAll" resultType="News">
+        select * from news order by nid asc
     </select>
     <insert id="addNews" parameterType="News">
-        insert into news (nid,ntitle,npublisher,nviwer,ncontent,ndate) values (null,#{ntitle},#{npublisher},#{nviwer},#{ncontent},#{ndate})
+        insert into news (nid,ntitle,npublisher,nviwer,ncontent,ndate) values
+        (null,#{ntitle},#{npublisher},#{nviwer},#{ncontent},#{ndate})
     </insert>
     <update id="updateNews" parameterType="News">
-    	update news
-	    <set>
-	      <if test="ntitle != null">
-	        ntitle = #{ntitle},
-	      </if>
-	      <if test="ncontent != null">
-	        ncontent = #{ncontent},
-	      </if>
-	      <if test="npublisher != null">
-	        npublisher = #{npublisher},
-	      </if>
-	       <if test="ndate != null">
-	        ndate = #{ndate},
-	      </if>
-	    </set>
-	    	where nid = #{nid}
+        update news
+        <set>
+            <if test="ntitle != null">
+                ntitle = #{ntitle},
+            </if>
+            <if test="ncontent != null">
+                ncontent = #{ncontent},
+            </if>
+            <if test="npublisher != null">
+                npublisher = #{npublisher},
+            </if>
+            <if test="ndate != null">
+                ndate = #{ndate},
+            </if>
+        </set>
+        where nid = #{nid}
     </update>
     <delete id="delNews" parameterType="Integer">
         delete from news where nid = #{nid}
     </delete>
     <select id="getNewsBynid" parameterType="Integer" resultType="News">
-    	select * from news where nid =#{nid}
+        select * from news where nid =#{nid}
     </select>
     <select id="getTopNews" resultType="News">
-    	select * from news ORDER BY ndate desc limit 0,2
+        select * from news ORDER BY ndate desc limit 0,2
     </select>
 </mapper>

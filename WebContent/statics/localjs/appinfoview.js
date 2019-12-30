@@ -1,5 +1,5 @@
-$("#back").on("click",function(){
-	window.location.href = "../list";
+$("#back").on("click", function () {
+    window.location.href = "../list";
 });
 	
 	

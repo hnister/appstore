@@ -19,59 +19,59 @@ import javax.servlet.http.HttpSession;
 public class LoginFilter implements Filter {
 
     /**
-     * Default constructor. 
+     * Default constructor.
      */
     public LoginFilter() {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see Filter#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-	}
+    /**
+     * @see Filter#destroy()
+     */
+    public void destroy() {
+        // TODO Auto-generated method stub
+    }
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
-		HttpServletRequest request=(HttpServletRequest) req;
-		HttpServletResponse response=(HttpServletResponse) res;
-		HttpSession session=request.getSession();
-		
-		String uri = request.getRequestURI();
-		System.out.println("访问链接:"+uri);
+    /**
+     * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
+     */
+    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+        // TODO Auto-generated method stub
+        // place your code here
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) res;
+        HttpSession session = request.getSession();
+
+        String uri = request.getRequestURI();
+        System.out.println("访问链接:" + uri);
 //		chain.doFilter(request, response);
-		String [] str=uri.split("/");
-		if (str.length == 2) {
-			chain.doFilter(request, response);
-		}else if(str.length==4 && str[2].equals("admin") && str[3].equals("login.jsp")){
-				chain.doFilter(request, response);
-		}else {
-			if (str[2].equals("admin")) {
-				if (str.length==4 && str[3].equals("login.do")) {
-					chain.doFilter(request, response);
-				} else if(session.getAttribute("user")==null) {
+        String[] str = uri.split("/");
+        if (str.length == 2) {
+            chain.doFilter(request, response);
+        } else if (str.length == 4 && str[2].equals("admin") && str[3].equals("login.jsp")) {
+            chain.doFilter(request, response);
+        } else {
+            if (str[2].equals("admin")) {
+                if (str.length == 4 && str[3].equals("login.do")) {
+                    chain.doFilter(request, response);
+                } else if (session.getAttribute("user") == null) {
 //					request.getRequestDispatcher("login.jsp").forward(request, response);
-					response.sendRedirect("login.jsp");
-				}else {
-					// pass the request along the filter chain
-					chain.doFilter(request, response);
-				}	
-			} else {
-				chain.doFilter(request, response);
-			}
-		}
-}
+                    response.sendRedirect("login.jsp");
+                } else {
+                    // pass the request along the filter chain
+                    chain.doFilter(request, response);
+                }
+            } else {
+                chain.doFilter(request, response);
+            }
+        }
+    }
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
-	}
+    /**
+     * @see Filter#init(FilterConfig)
+     */
+    public void init(FilterConfig fConfig) throws ServletException {
+        // TODO Auto-generated method stub
+    }
 
 }

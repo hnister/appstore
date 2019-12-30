@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
         <typeAlias alias="News" type="com.grizzly.model.News"/>
-        <typeAlias alias="AppInform" type="com.grizzly.model.AppInform"/>
+        <typeAlias alias="AdPromotion" type="com.grizzly.model.AdPromotion"/>
+        <typeAlias alias="AppCategory" type="com.grizzly.model.AppCategory"/>
+        <typeAlias alias="AppInfo" type="com.grizzly.model.AppInfo"/>
+        <typeAlias alias="AppVersion" type="com.grizzly.model.AppVersion"/>
+        <typeAlias alias="BackendUser" type="com.grizzly.model.BackendUser"/>
+        <typeAlias alias="DataDictionary" type="com.grizzly.model.DataDictionary"/>
+        <typeAlias alias="DevUser" type="com.grizzly.model.DevUser"/>
     </typeAliases>
     <mappers>
-        <mapper resource="com/grizzly/dao/NewsMapper.xml" />
-        <mapper resource="com/grizzly/dao/DeveloperMapper.xml" />
+        <mapper resource="com/grizzly/dao/NewsMapper.xml"/>
+        <mapper resource="com/grizzly/dao/DeveloperMapper.xml"/>
+        <mapper resource="com/grizzly/dao/AppCategoryMapper.xml"/>
+        <mapper resource="com/grizzly/dao/AppInfoMapper.xml"/>
+        <mapper resource="com/grizzly/dao/AppVersionMapper.xml"/>
+        <mapper resource="com/grizzly/dao/AppVersionMapper.xml"/>
+        <mapper resource="com/grizzly/dao/DataDictionaryMapper.xml"/>
+        <mapper resource="com/grizzly/dao/DevUserMapper.xml"/>
     </mappers>
 </configuration>
