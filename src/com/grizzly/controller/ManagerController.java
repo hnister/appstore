@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grizzly.model.BackendUser;
 import com.grizzly.service.ManagerService;
+import com.grizzly.utils.Constants;
 
 @Controller
 public class ManagerController {
@@ -35,7 +36,7 @@ public class ManagerController {
 		}
 		if(null != user){//登录成功
 			//放入session
-//			session.setAttribute(Constants.USER_SESSION, user);
+			session.setAttribute(Constants.USER_SESSION, user);
 			//页面跳转（main.jsp）
 			return "redirect:/manager/backend/main";
 		}else{
@@ -43,5 +44,21 @@ public class ManagerController {
 			request.setAttribute("error", "用户名或密码不正确");
 			return "backendlogin";
 		}
+	}
+	
+	@RequestMapping(value="manager/backend/main")
+	public String main(HttpSession session){
+		if(session.getAttribute(Constants.USER_SESSION) == null){
+			return "redirect:/manager/login";
+		}
+		return "backend/main";
+		
+	}
+	
+	@RequestMapping(value="manager/logout")
+	public String logout(HttpSession session){
+		//清除session
+		session.removeAttribute(Constants.USER_SESSION);
+		return "backendlogin";
 	}
 }
