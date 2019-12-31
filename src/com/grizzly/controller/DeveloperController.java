@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +32,7 @@ import com.grizzly.utils.Constants;
 import com.grizzly.utils.PageInfo;
 import com.grizzly.utils.PageSupport;
 import com.mysql.jdbc.StringUtils;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 
 @Controller
@@ -68,6 +68,7 @@ public class DeveloperController {
 
     @RequestMapping("/dev/login")
     public String devLogin(Model model) {
+    	System.out.println("开发者登录");
         return "devlogin";
     }
     
