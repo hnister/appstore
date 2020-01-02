@@ -32,6 +32,9 @@
     <div>
         <a href="dev/login" class="btn btn-link">开发者平台 入口</a>
     </div>
+    <div>
+        <a href="dev/login" class="btn btn-link">开发者注册 入口</a>
+    </div>
 </div>
 </body>
 </html>

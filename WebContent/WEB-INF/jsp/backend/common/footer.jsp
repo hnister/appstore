@@ -6,7 +6,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        �2016 All Rights Reserved.
+        @2016 All Rights Reserved.
     </div>
     <div class="clearfix"></div>
 </footer>

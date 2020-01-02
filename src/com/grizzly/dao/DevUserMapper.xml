@@ -12,4 +12,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 	</select>
+	
+	<select id="getDevUsers" resultType="DevUser">
+		select * from dev_user
+		<trim prefix="where" prefixOverrides="and | or">
+			<if test="devName != null">
+				and devName like CONCAT('%',#{devName},'%')
+			</if>
+		</trim>
+		order by id asc limit #{from},#{pageSize}
+	</select>
+	
+	<select id="getDevInfoCount" resultType="Integer">
+		select count(*) from dev_user
+		<trim prefix="where" prefixOverrides="and || or">
+			<if	test="devName != null">
+				and devName like CONCAT('%',#{devName},'%')
+			</if>
+		</trim>
+	</select>
+	
 </mapper>

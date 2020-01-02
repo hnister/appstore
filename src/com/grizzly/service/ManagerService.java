@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.grizzly.model.AppInfo;
 import com.grizzly.model.BackendUser;
+import com.grizzly.model.DevUser;
 
 
 public interface ManagerService {
@@ -65,5 +66,8 @@ public interface ManagerService {
 	 */
 	public boolean updateSatus(@Param(value="status")Integer status,@Param(value="id")Integer id)throws Exception;
 
+	public List <DevUser> getDevUsers(String devName,int currentPageNo, int pageSize);
+	
+	public int getAppInfoCount(String devaName);
 
 }
