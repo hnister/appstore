@@ -91,14 +91,13 @@ public class DeveloperController {
     @ResponseBody
     public String findDevByCode(String devCode) {
     	System.out.println("查询登录名是否存在");
-    	System.out.println("devCode:"+devCode);
-    	if (developerService.findDevByCode(devCode)) {
-    		System.out.println("OK");
-			return JSONArray.toJSONString("OK");
+    	Map<String, Object> map = new HashMap<>();
+    	if (!developerService.findDevByCode(devCode)) {
+    		map.put("msg", "OK");
 		} else {
-			System.out.println("ERROR");
-			return JSONArray.toJSONString("ERRO");
+			map.put("msg", "ERROR");
 		}
+    	return JSONArray.toJSONString(map);
     }
     
     @RequestMapping("dev/modify")

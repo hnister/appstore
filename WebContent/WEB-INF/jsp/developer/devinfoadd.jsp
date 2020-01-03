@@ -11,7 +11,8 @@
 
 <title>开发者注册</title>
 
-<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath }/statics/js/jquery.min.js"></script>
 <!-- Bootstrap -->
 <link
 	href="${pageContext.request.contextPath }/statics/css/bootstrap.min.css"
@@ -35,7 +36,6 @@
 <script type="text/javascript">
 	function query() {
 		var devCode = $("#devCode").val();
-		alert(devCode);
 		$.ajax({
 			type : "GET",
 			dataType : "json",
@@ -43,15 +43,32 @@
 			data : {
 				devCode : devCode
 			}, //上传的参数
-			async : false,
+			//async : false,
 			url : "findDevByCode", //请求的url
 			success : function(data) { //请求成功的回调函数
-				console.log(data);
+				if (data.msg == "OK") {
+					$("#msg").text("可用");
+					$("#send").attr("disabled", false);
+				} else {
+					$("#msg").text("该用户存在")
+					$("#send").attr("disabled", true);
+				}
 			},
 			error : function(e) { //请求失败的回调函数
 				console.log(e);
 			}
 		})
+	}
+	function ack() {
+		var pas1 = $("#password").val();
+		var pas2 = $("#repassword").val();
+		if (pas1 != pas2) {
+			$("#msg2").text("密码输入不一致");
+			$("#send").attr("disabled", true);
+		}else{
+			$("#msg2").text("");
+			$("#send").attr("disabled", false);
+		}
 	}
 </script>
 </head>
@@ -77,6 +94,7 @@
 									name="devCode" required="required" placeholder="请输入用户名"
 									type="text" onchange="javascript:query();">
 							</div>
+							<label id="msg"></label>
 						</div>
 						<div class="item form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12"
@@ -95,7 +113,7 @@
 								for="name">密码<span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input id="supportROM" class="form-control col-md-7 col-xs-12"
+								<input id="password" class="form-control col-md-7 col-xs-12"
 									name="devPassword" data-validate-length-range="20"
 									data-validate-words="1" required="required" placeholder="请输入密码"
 									type="password">
@@ -106,18 +124,19 @@
 								for="name">确认密码 <span class="required">*</span>
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input id="interfaceLanguage"
-									class="form-control col-md-7 col-xs-12"
+								<input id="repassword" class="form-control col-md-7 col-xs-12"
 									data-validate-length-range="20" data-validate-words="1"
 									name="interfaceLanguage" required="required"
-									placeholder="请输入密码" type="password">
+									placeholder="请输入密码" type="password"
+									onchange="javascript:ack();">
+									<label id="msg2"></label>
 							</div>
 						</div>
 						<div class="ln_solid"></div>
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-3">
 								<button id="send" type="submit" class="btn btn-success">提交</button>
-								<button type="button" class="btn btn-primary" id="back">返回</button>
+								<button type="button" class="btn btn-primary" id="back" onclick="javascript:window.location.href='${pageContext.request.contextPath }'">返回</button>
 								<br /> <br />
 							</div>
 						</div>
