@@ -94,7 +94,7 @@
                                         <td tabindex="0" class="sorting_1">${devInfo.devCode}</td>
                                         <td>${devInfo.devName }</td>
                                         <td>${devInfo.devEmail }</td>
-                                        <td>${devInfo.devInfo }</td>
+                                        <td><a href="javascript:show(${devInfo.id })">点击查看简介</a></td>
                                         <td><fmt:formatDate  value="${devInfo.creationDate }" type="both"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
                                             <div class="btn-group">
@@ -158,11 +158,33 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+    </div>  
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					开发者简介
+				</h4>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
 <%@include file="common/footer.jsp" %>
 <script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
 <script src="${pageContext.request.contextPath }/statics/localjs/applist.js"></script>

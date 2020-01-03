@@ -308,4 +308,11 @@ public class ManagerController {
 			return JSONArray.toJSONString("ERROR");
 		}
 	}
+	
+	@RequestMapping("manager/backend/dev/getDevById")
+	@ResponseBody
+	public String getDevById(int id) {
+		return JSONArray.toJSONString(developerService.getDevById(id));
+	}
+	
 }

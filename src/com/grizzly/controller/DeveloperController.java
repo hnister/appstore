@@ -115,8 +115,7 @@ public class DeveloperController {
     @RequestMapping("dev/infoupdate")
     @ResponseBody
     public String updateDevInfo(DevUser devUser) {
-    	System.out.println(devUser.getDevName());
-    	System.out.println(devUser.getDevCode());
+    	System.out.println("devInfo:"+devUser.getDevInfo());
     	if (developerService.updateDevInfo(devUser)) {
     		return JSONArray.toJSONString("OK");
 		} else {

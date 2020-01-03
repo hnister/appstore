@@ -50,6 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<!-- <if test="devCode != null">devCode=#{devCode},</if> -->
 			<if test="devName != null">devName=#{devName},</if>
 			<if test="devEmail != null">devEmail=#{devEmail},</if>
+			<if test="devEmail != null">devInfo=#{devInfo},</if>
 		</trim>
 	</update>
 	

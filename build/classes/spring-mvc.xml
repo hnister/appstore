@@ -18,6 +18,8 @@
     <mvc:annotation-driven/>
     <!-- 给静态资源放行 -->
     <mvc:resources location="/statics/" mapping="/statics/**"/>
+    <mvc:resources location="/plugins/" mapping="/plugins/**"/>
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置-->
     <bean id="viewResolver"

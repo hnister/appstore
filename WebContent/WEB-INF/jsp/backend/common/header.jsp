@@ -29,6 +29,24 @@
     <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
     <!-- add localcss 2016-8-21 -->
     <link href='${pageContext.request.contextPath }/statics/localcss/applist.css' rel='stylesheet'>
+    <script type="text/javascript">
+    function show(id){
+        $.ajax({
+            url: "getDevById?id="+id,
+            async: false,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                $('.modal-body').html(data.devInfo);
+            },
+            error: function (data) {
+            	$('.modal-body').html("");
+            }
+        });
+        $('#myModal').modal('show');
+    }
+    </script>
+    
 </head>
 <body class="nav-md footer_fixed">
 <div class="container body">
