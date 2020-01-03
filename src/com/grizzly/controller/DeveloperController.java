@@ -81,6 +81,7 @@ public class DeveloperController {
     @RequestMapping("/dev/devinfoadd")
     public String devInfoAdd(Model model,DevUser devUser) {
     	System.out.println(devUser.toString());
+    	devUser.setCreationDate(new Date());
     	if (developerService.addDevInfo(devUser)) {
 			System.out.println("用户注册成功");
 		}

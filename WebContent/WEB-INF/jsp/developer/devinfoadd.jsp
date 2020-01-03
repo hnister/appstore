@@ -129,8 +129,8 @@
 									name="interfaceLanguage" required="required"
 									placeholder="请输入密码" type="password"
 									onchange="javascript:ack();">
-									<label id="msg2"></label>
 							</div>
+							<label id="msg2"></label>
 						</div>
 						<div class="ln_solid"></div>
 						<div class="form-group">

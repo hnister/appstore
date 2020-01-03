@@ -2,6 +2,10 @@ package com.grizzly.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DevUser {
 	private Integer id;//主键id
 	private String devCode;//开发者帐号(系统登录账号)
@@ -53,6 +57,12 @@ public class DevUser {
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
+	
+	@JsonFormat(
+		    pattern = "yyyy-MM-dd HH:mm:ss",
+		    timezone = "GMT+8"
+		)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public void setCreatedBy(Integer createdBy) {
 		this.createdBy = createdBy;
 	}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+         <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="common/header.jsp" %>
 <div class="clearfix"></div>
 <div class="row">
@@ -93,7 +95,7 @@
                                         <td>${devInfo.devName }</td>
                                         <td>${devInfo.devEmail }</td>
                                         <td>${devInfo.devInfo }</td>
-                                        <td>${devInfo.creationDate }</td>
+                                        <td><fmt:formatDate  value="${devInfo.creationDate }" type="both"  pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-danger">点击操作</button>

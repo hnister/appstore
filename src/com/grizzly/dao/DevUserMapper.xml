@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and devName like CONCAT('%',#{devName},'%')
 			</if>
 		</trim>
-		order by id asc limit #{from},#{pageSize}
+		order by creationDate desc limit #{from},#{pageSize}
 	</select>
 	
 	<select id="getDevInfoCount" resultType="Integer">

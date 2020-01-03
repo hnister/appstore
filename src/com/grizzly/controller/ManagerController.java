@@ -271,7 +271,6 @@ public class ManagerController {
 				e.printStackTrace();
 			}
 		}
-		
 		System.out.println("currentPageNo:"+currentPageNo);
 		// 总开发者数量
 		int totalCount = 0;
@@ -281,7 +280,6 @@ public class ManagerController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		// 总页数
 		PageSupport pages = new PageSupport();
 		pages.setCurrentPageNo(currentPageNo);

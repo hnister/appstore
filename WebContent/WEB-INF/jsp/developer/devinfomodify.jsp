@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
                             <button id="send" type="button" class="btn btn-success">提交</button>
-                            <button type="button" class="btn btn-primary" id="back">返回</button>
+                            <button type="button" class="btn btn-primary" id="back" onclick="javascript:history.go(-1);">返回</button>
                             <br/><br/>
                         </div>
                     </div>
