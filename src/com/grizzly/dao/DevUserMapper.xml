@@ -32,4 +32,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</trim>
 	</select>
 	
+	<insert id="addDevInfo" parameterType="DevUser">
+		insert dev_user (devCode,devName,devpassword,creationDate)  values(#{devCode},#{devName},#{devPassword},#{creationDate})
+	</insert>
+	
+	<select id="findDevByCode" resultType="Integer">
+		select count(*) from dev_user where devCode = #{devCode}
+	</select>
 </mapper>

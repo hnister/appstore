@@ -72,6 +72,35 @@ public class DeveloperController {
         return "devlogin";
     }
     
+    @RequestMapping("/dev/register")
+    public String devReg(Model model) {
+    	System.out.println("开发者注册");
+        return "developer/devinfoadd";
+    }
+    
+    @RequestMapping("/dev/devinfoadd")
+    public String devInfoAdd(Model model,DevUser devUser) {
+    	System.out.println(devUser.toString());
+    	if (developerService.addDevInfo(devUser)) {
+			System.out.println("用户注册成功");
+		}
+        return "devlogin";
+    }
+    
+    @RequestMapping("/dev/findDevByCode")
+    @ResponseBody
+    public String findDevByCode(String devCode) {
+    	System.out.println("查询登录名是否存在");
+    	System.out.println("devCode:"+devCode);
+    	if (developerService.findDevByCode(devCode)) {
+    		System.out.println("OK");
+			return JSONArray.toJSONString("OK");
+		} else {
+			System.out.println("ERROR");
+			return JSONArray.toJSONString("ERRO");
+		}
+    }
+    
 	
 	@RequestMapping(value="dev/dologin",method=RequestMethod.POST)
 	public String doLogin(@RequestParam String devCode,@RequestParam String devPassword,HttpServletRequest request,HttpSession session){

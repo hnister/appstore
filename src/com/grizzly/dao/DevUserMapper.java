@@ -16,4 +16,6 @@ public interface DevUserMapper {
 	public List <DevUser> getDevUsers(@Param("devName")String devName,@Param("from")int from,@Param("pageSize")int pageSize);
 	public DevUser getLoginUser(@Param("devCode")String devCode)throws Exception;
 	public int getDevInfoCount(@Param("devName")String devNmae);
+	public int addDevInfo(DevUser devUser);
+	public int findDevByCode(String devCode);
 }

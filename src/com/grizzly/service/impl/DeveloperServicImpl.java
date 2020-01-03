@@ -351,4 +351,20 @@ public class DeveloperServicImpl implements DeveloperService {
 		}
 		return user;
 	}
+
+	@Override
+	public Boolean addDevInfo(DevUser devUser) {
+		Boolean flag = false;
+		if(devUserMapper.addDevInfo(devUser)>0)
+			flag=true;
+		return flag;
+	}
+
+	@Override
+	public Boolean findDevByCode(String devCode) {
+		Boolean flag = false;
+		if(devUserMapper.findDevByCode(devCode)>0)
+			flag=true;
+		return flag;
+	}
 }

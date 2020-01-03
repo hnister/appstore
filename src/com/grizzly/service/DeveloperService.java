@@ -168,4 +168,8 @@ public interface DeveloperService {
 	 * @return
 	 */
 	public DevUser login(String devCode,String devPassword) throws Exception;
+	
+	public Boolean addDevInfo(DevUser devUser);
+	
+	public Boolean findDevByCode(String devCode);
 }
