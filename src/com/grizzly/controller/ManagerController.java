@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.grizzly.model.AppCategory;
 import com.grizzly.model.AppInfo;
 import com.grizzly.model.AppVersion;
@@ -297,5 +298,16 @@ public class ManagerController {
 		System.out.println("查询用户名：" + devName);
 		model.addAttribute("devInfoList", managerService.getDevUsers(devName,currentPageNo,pageSize));
 		return "backend/devlist";
+	}
+	
+	@RequestMapping("manager/backend/dev/deleteDev")
+	@ResponseBody
+	public String deleteDevById(int id) {
+		System.out.println("id:"+id);
+		if (managerService.deleteDevById(id)) {
+			return JSONArray.toJSONString("OK");
+		} else {
+			return JSONArray.toJSONString("ERROR");
+		}
 	}
 }

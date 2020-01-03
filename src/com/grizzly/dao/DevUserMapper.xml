@@ -39,4 +39,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findDevByCode" resultType="Integer">
 		select count(*) from dev_user where devCode = #{devCode}
 	</select>
+	
+	<select id="getDevById" resultType="DevUser">
+		select * from dev_user where id =  #{devId}
+	</select>
+	
+	<update id="updateDevInfo" parameterType="DevUser">
+		update dev_user
+		<trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+			<!-- <if test="devCode != null">devCode=#{devCode},</if> -->
+			<if test="devName != null">devName=#{devName},</if>
+			<if test="devEmail != null">devEmail=#{devEmail},</if>
+		</trim>
+	</update>
+	
+	<delete id="deleteDevById" parameterType="Integer">
+		delete from dev_user where id = #{id}
+	</delete>
 </mapper>

@@ -101,6 +101,29 @@ public class DeveloperController {
 		}
     }
     
+    @RequestMapping("dev/modify")
+    public String modifyDevInfo(Model model,HttpSession session) {
+    	DevUser devUser = (DevUser)session.getAttribute(Constants.DEV_USER_SESSION);
+    	int devId = devUser.getId();
+    	if (devUser != null) {
+			System.out.println("session："+devUser.getId());
+		}
+    	model.addAttribute("devUser", developerService.getDevById(devId));
+    	return "developer/devinfomodify";
+    }
+    
+    @RequestMapping("dev/infoupdate")
+    @ResponseBody
+    public String updateDevInfo(DevUser devUser) {
+    	System.out.println(devUser.getDevName());
+    	System.out.println(devUser.getDevCode());
+    	if (developerService.updateDevInfo(devUser)) {
+    		return JSONArray.toJSONString("OK");
+		} else {
+			return JSONArray.toJSONString("ERROR");
+		}
+    }
+    
 	
 	@RequestMapping(value="dev/dologin",method=RequestMethod.POST)
 	public String doLogin(@RequestParam String devCode,@RequestParam String devPassword,HttpServletRequest request,HttpSession session){
@@ -261,7 +284,7 @@ public class DeveloperController {
 	 * @param pid
 	 * @return
 	 */
-	@RequestMapping(value="/datadictionarylist.json",method=RequestMethod.GET)
+	@RequestMapping(value="dev/flatform/app/datadictionarylist.json",method=RequestMethod.GET)
 	@ResponseBody
 	public List<DataDictionary> getDataDicList (@RequestParam String tcode){
 		return this.getDataDictionaryList(tcode);

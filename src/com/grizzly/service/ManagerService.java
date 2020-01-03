@@ -69,5 +69,7 @@ public interface ManagerService {
 	public List <DevUser> getDevUsers(String devName,int currentPageNo, int pageSize);
 	
 	public int getAppInfoCount(String devaName);
+	
+	public Boolean deleteDevById(int id);
 
 }

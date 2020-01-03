@@ -75,7 +75,7 @@
                                 <ul class="nav child_menu">
                                     <li><a href="javascript:;">APP开发者账户申请</a>
                                     </li>
-                                    <li><a href="javascript:;">个人账户信息维护</a>
+                                    <li><a href="${pageContext.request.contextPath }/dev/modify">个人账户信息维护</a>
                                     </li>
                                 </ul>
                             </li>

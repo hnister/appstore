@@ -95,4 +95,12 @@ public class ManagerServiceImpl implements ManagerService {
 		// TODO Auto-generated method stub
 		return devUserMapper.getDevInfoCount(devName);
 	}
+
+	@Override
+	public Boolean deleteDevById(int id) {
+		Boolean flag = false;
+		if(devUserMapper.deleteDevById(id)>0)
+			flag=true;
+		return flag;
+	}
 }

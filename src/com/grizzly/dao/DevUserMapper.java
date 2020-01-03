@@ -18,4 +18,7 @@ public interface DevUserMapper {
 	public int getDevInfoCount(@Param("devName")String devNmae);
 	public int addDevInfo(DevUser devUser);
 	public int findDevByCode(String devCode);
+	public DevUser getDevById(int devId);
+	public int updateDevInfo(DevUser devUser);
+	public int deleteDevById(int id);
 }

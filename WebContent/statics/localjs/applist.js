@@ -70,6 +70,31 @@ $(".checkApp").on("click", function () {
     }
 });
 
+$(".deleteDev").on("click", function () {
+    var obj = $(this);
+    if (confirm("你确定要删除开发者【" + obj.attr("devcode") + "】吗？")) {
+        $.ajax({
+            type: "GET",
+            url: "deleteDev",
+            data: {
+            	id: obj.attr("devinfoid")
+            	},
+            dataType: "json",
+            success: function (data) {
+                if (data == "OK") {//删除成功：移除删除行
+                    alert("删除成功");
+                    window.location.href = "list";
+                } else if (data == "ERROR") {//删除失败
+                    alert("对不起，删除开发者【" + obj.attr("devcode") + "】失败");
+                } 
+            },
+            error: function (data) {
+                alert("对不起，删除失败");
+            }
+        });
+    }
+});
+
 
 
 	

@@ -172,4 +172,8 @@ public interface DeveloperService {
 	public Boolean addDevInfo(DevUser devUser);
 	
 	public Boolean findDevByCode(String devCode);
+	
+	public DevUser getDevById(int devId);
+	
+	public Boolean updateDevInfo(DevUser devUser);
 }

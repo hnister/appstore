@@ -367,4 +367,18 @@ public class DeveloperServicImpl implements DeveloperService {
 			flag=true;
 		return flag;
 	}
+
+	@Override
+	public DevUser getDevById(int devId) {
+		
+		return devUserMapper.getDevById(devId);
+	}
+
+	@Override
+	public Boolean updateDevInfo(DevUser devUser) {
+		Boolean flag = false;
+		if(devUserMapper.updateDevInfo(devUser)>0)
+			flag=true;
+		return flag;
+	}
 }
